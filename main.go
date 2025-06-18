@@ -25,6 +25,9 @@ func main() {
 	playlistURL := os.Args[1]
 	dir := os.Args[2]
 
+	fmt.Println(playlistURL)
+	fmt.Println(dir)
+
 	if _, err := os.Stat(dir); os.IsNotExist(err) {
 		if err := os.Mkdir(dir, 0755); err != nil {
 			log.Fatalf("Erro ao criar o diretório %s: %v", dir, err)
@@ -59,6 +62,9 @@ func downloadPlaylist(url, dir string) error {
 	if err != nil {
 		return fmt.Errorf("erro ao obter a playlist: %w", err)
 	}
+
+	fmt.Println("playlist")
+	fmt.Println(playlist)
 
 	ctx := context.Background()
 
